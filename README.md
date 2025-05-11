@@ -1,15 +1,14 @@
-# Gender-Classification
+# *Gender-Classification*
 <img src="gender detection (2).jpeg" alt="Gender Detection Sample Output" width="800" height="400">>
-
-# Project Title  
+# 📑Project Title  
 ### Gender detection: Gender Classification Using Deep learning
-# Description
+# 📌Description
 Gender Classification Using Deep Learning and OpenCV is a real-time facial gender detection project powered by a custom-built Convolutional Neural Network (CNN). Trained on grayscale facial images resized to 32x32 pixels, the model classifies detected faces as male or female with reliable accuracy.
 
 The project utilizes OpenCV's Haar cascade classifier for face detection and Keras for building and training the CNN. It incorporates preprocessing techniques like normalization and image resizing, and leverages train_test_split for model evaluation during training using categorical crossentropy and the Adam optimizer.
 
 Streamlit is used to create an interactive interface, allowing users to upload images or use a webcam for real-time gender detection. The model displays bounding boxes with labels over each detected face and outputs gender counts, making it suitable for lightweight real-world applications like demographic analytics and user interaction systems.
-# Table of contents
+# 📌Table of contents
 - [Project Overview](#project-Overview)
 - [Dataset](#datasets)
 - [Dependencies](#dependencies)
@@ -22,14 +21,18 @@ Streamlit is used to create an interactive interface, allowing users to upload i
 - [Running the App](#running-the-App)
 - [Sample Output](#sample-Output)
 - [Future Work](#future-Work)
-# Project Overview
+# 📌Project Overview
 This project detects the gender of individuals from facial images using a CNN-based model trained on grayscale images. It leverages OpenCV for face detection, Keras for deep learning, and Streamlit to provide an interactive user interface.
 
-# Dataset
+# 📂Dataset
 Dataset source:
+data=np.load('./trainingDataTarget/data.npy')
+target=np.load('./trainingDataTarget/target.npy')
+Training images = 23.8k
+Validation images = 5500
+size of dataset = 281.82 MB
 
-
-## Dependencies
+## 🛠️Dependencies
 Before running the project, ensure the following Python libraries are installed:
 
 - `tensorflow / keras`: For building, training, and loading the CNN model.
@@ -49,7 +52,7 @@ To install these dependencies, run the following command:
 ```sh
 pip install tensorflow keras opencv-python streamlit numpy Pillow scikit-learn
 ```
-## Required Imports and Libraries
+## 📌Required Imports and Libraries
 ```sh
 import numpy as np
 import cv2
@@ -60,7 +63,7 @@ from keras.callbacks import ModelCheckpoint
 from sklearn.model_selection import train_test_split
 from PIL import Image
 ```
-## Project Structure
+##  📁Project Structure
 ```sh
 gender-detection/
 │
@@ -74,7 +77,7 @@ gender-detection/
 ├── README.md                      # Project documentation
 └── requirements.txt               # Dependency list
 ```
-## Dara Preprocessing
+## 🔄Dara Preprocessing
 ### Training Data Preparation:
 ```sh
 data = np.load('./trainingDataTarget/data.npy')
@@ -90,7 +93,7 @@ resized = cv2.resize(sub_face_img, (32, 32))
 normalized = resized / 255.0
 reshaped = np.reshape(normalized, (1, 32, 32, 1))
 ```
-## Model Architectures Used
+## 🏗️Model Architectures Used
 We used a custom Convolutional Neural Network (CNN) architecture tailored for binary gender classification from facial images:
 
 - `Conv2D (32 filters)`: The model begins with two convolutional layers, each with 32 filters of size 3×3 and ReLU activation, to extract low-level features like edges and textures.
@@ -122,13 +125,21 @@ This lightweight custom CNN is optimized for fast and effective real-time gender
 - Model Save Format: model-xxx.model per epoch
   
 ## 📊Performance Metrics
-Best Model: Custom CNN (saved as model-019.model based on lowest validation loss)
 
-Metrics Used: Accuracy (during training and validation)
+- Best Model: Custom CNN (saved as model-019.model based on lowest validation loss)
 
-Plots: Not included in the current code, but model accuracy and loss are tracked via Keras callbacks during training.
-`loss`
-<img src="cnn_training_plot.png" alt="CNN Accuracy and Loss Curves" width="800" height="400">
+- Metrics Used: Accuracy (during training and validation)
+
+- Accuracy and Validation Loss printed during training.
+
+- Performance can be further evaluated using:
+
+- Confusion matrix
+
+- Precision, recall, F1-score (optional via sklearn.metrics)
+
+- Real-time visual verification through Streamlit interface.
+
 
 
 
