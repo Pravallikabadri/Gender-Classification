@@ -26,11 +26,9 @@ This project detects the gender of individuals from facial images using a CNN-ba
 
 # 📂Dataset
 Dataset source:
-data=np.load('./trainingDataTarget/data.npy')
-target=np.load('./trainingDataTarget/target.npy')
+https://www.kaggle.com/datasets/cashutosh/gender-classification-dataset
 Training images = 23.8k
 Validation images = 5500
-size of dataset = 281.82 MB
 
 ## 🛠️Dependencies
 Before running the project, ensure the following Python libraries are installed:
